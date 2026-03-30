@@ -92,4 +92,10 @@ This is the place for you to write reflections:
 
 3. Yes, i explored Postman and i find it is useful for testing API endpoints without needing a frontend. It allows sending HTTP requests and viewing responses easily. I plan to use it to test the subscribe and unsubscribe endpoints to ensure they work correctly. I am also interested in features like collections and request history, which can help organize and track API testing in future projects.
 
-#### Reflection Publisher-3
+### Reflection Publisher-3
+
+1. This tutorial uses the Push model. This means the system directly sends notification data to subscribers whenever something happens, like when a product is created, deleted, or promoted.
+
+2. If using the Pull model, subscribers would need to request the data themselves after knowing that something changed. The advantage is that subscribers can choose what data they want but it makes the process more complicated because it requires extra requests. In this case, Push is simpler and more efficient since everything is sent directly.
+
+3. If we do not use multi-threading, the system will send notifications one by one. This can make the process slower, especially if there are many subscribers or if some of them are slow to respond. As a result, actions like creating or deleting a product could take longer to complete.
