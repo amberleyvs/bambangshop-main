@@ -84,6 +84,12 @@ This is the place for you to write reflections:
 
 3. I think `DashMap` is still needed. Singleton and DashMap solve different problems. Singleton is about making sure there is only one shared instance of data, while DashMap is about making access to that shared data thread-safe. In Rust, since the application may handle multiple requests at the same time, we still need a thread-safe data structure like DashMap even if the storage is used as a singleton.
 
-#### Reflection Publisher-2
+### Reflection Publisher-2
+
+1. Separating Service and Repository from Model helps maintain clean architecture and separation of concerns. The Repository focuses on data storage and access, while the Service handles business logic. This makes the code easier to maintain, test, and extend. If everything is placed inside the Model, it would become too complex and hard to understand.
+
+2. If we only use the Model, each model (Program, Subscriber, Notification) would handle both data and logic, causing high complexity. Interactions between models would become harder to manage and it makes the system harder to scale and debug.
+
+3. Yes, i explored Postman and i find it is useful for testing API endpoints without needing a frontend. It allows sending HTTP requests and viewing responses easily. I plan to use it to test the subscribe and unsubscribe endpoints to ensure they work correctly. I am also interested in features like collections and request history, which can help organize and track API testing in future projects.
 
 #### Reflection Publisher-3
