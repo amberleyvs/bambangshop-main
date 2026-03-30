@@ -76,7 +76,13 @@ This is the place for you to write reflections:
 
 ### Mandatory (Publisher) Reflections
 
-#### Reflection Publisher-1
+### Reflection Publisher-1
+
+I implemented the `Subscriber` and `Notification` models, along with the `SubscriberRepository` using `DashMap` and `lazy_static` for in-memory storage. I learned how Rust handles shared state safely using these tools instead of traditional global variables.
+
+I also understood the importance of separating concerns through layers (model, repository, service, controller), which makes the system more organized and maintainable. This stage also introduced how the Observer pattern will be applied, where subscribers are stored based on product type and will later receive notifications when product events occur.
+
+This helped me understand safe state management in Rust and how to structure a modular application as a first timer for Rust.
 
 #### Reflection Publisher-2
 
