@@ -25,7 +25,7 @@ impl Subscriber {
             .await
             .ok();
 
-        log::warn!(
+        log::warn_!(
             "Sent {} notification of: [{}] {}, to: {}",
             payload.status,
             payload.product_type,
