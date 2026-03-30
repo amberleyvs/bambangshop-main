@@ -78,11 +78,11 @@ This is the place for you to write reflections:
 
 ### Reflection Publisher-1
 
-I implemented the `Subscriber` and `Notification` models, along with the `SubscriberRepository` using `DashMap` and `lazy_static` for in-memory storage. I learned how Rust handles shared state safely using these tools instead of traditional global variables.
+1. In this BambangShop case, I think using a single `Subscriber` struct is enough for now. In the classic Observer pattern, an interface is useful when there are multiple observer types with different implementations of the update behavior. However, in this project, subscribers currently have the same data structure and role, so a single model struct is just fine. A trait would be more useful if later we needed different subscriber behaviors.
 
-I also understood the importance of separating concerns through layers (model, repository, service, controller), which makes the system more organized and maintainable. This stage also introduced how the Observer pattern will be applied, where subscribers are stored based on product type and will later receive notifications when product events occur.
+2. I think `Vec` is less suitable than `DashMap` for this case. Since `id` in Program and `url` in Subscriber are intended to be unique, a map structure is better because it supports faster lookup, insertion, and deletion by key. With `Vec`, we would need to search manually through the list, which is less efficient and makes uniqueness harder to enforce.
 
-This helped me understand safe state management in Rust and how to structure a modular application as a first timer for Rust.
+3. I think `DashMap` is still needed. Singleton and DashMap solve different problems. Singleton is about making sure there is only one shared instance of data, while DashMap is about making access to that shared data thread-safe. In Rust, since the application may handle multiple requests at the same time, we still need a thread-safe data structure like DashMap even if the storage is used as a singleton.
 
 #### Reflection Publisher-2
 
